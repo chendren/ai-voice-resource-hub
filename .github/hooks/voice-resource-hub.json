@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "python3 scripts/log_copilot_event.py sessionStart",
+        "cwd": ".",
+        "timeoutSec": 5
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "python3 scripts/log_copilot_event.py sessionEnd",
+        "cwd": ".",
+        "timeoutSec": 5
+      }
+    ],
+    "errorOccurred": [
+      {
+        "type": "command",
+        "bash": "python3 scripts/log_copilot_event.py errorOccurred",
+        "cwd": ".",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}

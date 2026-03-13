@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Voice Resource Hub</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-backdrop" aria-hidden="true">
+      <div class="backdrop-grid"></div>
+    </div>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="page-shell nav-shell">
+        <a class="brand-lockup" href="#main-content" aria-label="AI Voice Resource Hub home">
+          <span class="brand-mark">VH</span>
+          <span class="brand-copy">
+            <strong id="nav-app-title">AI Voice Resource Hub</strong>
+            <span>Voice AI research workspace</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#search-section">Search</a>
+          <a href="#featured-section">Collections</a>
+          <a href="#catalog-section">Library</a>
+          <a href="#updates-section">Updates</a>
+        </nav>
+
+          <div class="nav-actions">
+            <span id="nav-model-pill" class="nav-status" data-state="loading">Preparing recommendations</span>
+            <button id="refresh-catalog-button" class="quiet-button" type="button">Refresh</button>
+          </div>
+      </div>
+    </header>
+
+      <main id="main-content" class="page-shell page-content">
+        <section class="hero-shell panel">
+          <div class="hero-main">
+            <p class="eyebrow">Voice AI research workspace</p>
+            <h1>Shortlist the right voice AI stack without drowning in tabs, docs, and launch pages.</h1>
+            <p id="app-description" class="hero-description">
+              Voice Hub helps product, engineering, and operations teams compare speech, agent, realtime, and deployment tools in one polished, searchable workspace.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#search-section">Start your search</a>
+              <a class="secondary-button inline-link" href="#catalog-section">Browse the library</a>
+            </div>
+          <div id="hero-signal-strip" class="hero-signal-strip"></div>
+        </div>
+
+        <aside class="hero-aside">
+          <article class="hero-note">
+            <span class="status-label">AI-assisted curation</span>
+            <strong id="model-status-label">Preparing recommendations...</strong>
+            <p id="model-status-detail" class="muted">
+              Recommendations are grounded in the catalog and refined when the local AI layer is available.
+            </p>
+          </article>
+
+          <article class="hero-note accent-note">
+            <span class="status-label">Library freshness</span>
+            <strong>Updated from trusted sources</strong>
+            <p class="muted">
+              Official docs, release feeds, and ecosystem updates keep the directory current without feeling noisy.
+            </p>
+            <div id="refresh-summary" class="mini-summary">Checking recent library activity...</div>
+          </article>
+
+          <article class="hero-note">
+            <span class="status-label">Popular starting points</span>
+            <div id="suggested-query-grid" class="suggested-query-grid"></div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="panel insight-panel">
+        <div class="insight-copy">
+          <p class="eyebrow">Selected template style</p>
+          <h2>Professional SaaS framing on top, compact tools-directory browsing underneath.</h2>
+          <p class="section-copy">
+            The strongest references paired a clear outcome-led hero with logo-first cards, fast filters, and compact fact blocks. Voice Hub now follows that template.
+          </p>
+        </div>
+
+        <div class="provider-band">
+          <span class="status-label">Commonly shortlisted providers</span>
+          <div id="provider-marquee" class="provider-marquee" aria-label="Commonly evaluated providers"></div>
+        </div>
+
+        <div class="workflow-grid" aria-label="How Voice Hub works">
+          <article class="workflow-card">
+            <span class="workflow-step">01</span>
+              <h3>Start with the outcome</h3>
+              <p>Lead with the product you want to ship instead of digging through vendor homepages first.</p>
+            </article>
+
+          <article class="workflow-card">
+            <span class="workflow-step">02</span>
+              <h3>Compare the right stack shape</h3>
+              <p>Move between managed, self-hosted, realtime, and open-source paths without losing momentum.</p>
+            </article>
+
+          <article class="workflow-card">
+            <span class="workflow-step">03</span>
+              <h3>Go deeper only when needed</h3>
+              <p>Use compact summaries first, then open the official docs only for the options worth serious evaluation.</p>
+            </article>
+          </div>
+        </section>
+
+      <div class="workspace-shell">
+      <section id="search-section" class="panel search-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Search</p>
+            <h2>Describe what you want to ship</h2>
+            <p class="section-copy">
+              Start with the product or workflow you need and Voice Hub will narrow the field into a clear starting point.
+            </p>
+          </div>
+          <div id="notice" class="notice" aria-live="polite"></div>
+        </div>
+
+        <form id="search-form" class="search-form">
+          <div class="search-row">
+            <label class="search-input-shell" for="query-input">
+              <span class="sr-only">Search query</span>
+              <input
+                id="query-input"
+                name="query"
+                type="search"
+                placeholder="For example: a multilingual phone concierge for hospitality"
+                minlength="2"
+                required
+              />
+            </label>
+            <button id="search-button" type="submit">Find recommendations</button>
+          </div>
+
+          <div class="search-tools">
+            <div class="select-shell">
+              <label for="category-select">Category</label>
+              <select id="category-select" name="category" aria-label="Filter search category">
+                <option value="">All categories</option>
+              </select>
+            </div>
+
+            <label class="toggle-shell">
+              <input id="include-updates" name="include-updates" type="checkbox" checked />
+              <span>Include recent updates in recommendations</span>
+            </label>
+
+            <button id="clear-search-button" class="tertiary-button" type="button">Reset filters</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="recommendation-grid">
+        <article class="panel answer-panel">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="eyebrow">Recommendation</p>
+              <h2>Your suggested shortlist</h2>
+            </div>
+            <span id="rerank-pill" class="subtle-pill hidden">AI refined</span>
+          </div>
+          <div id="answer-text" class="answer-text">
+            Describe the kind of voice product or workflow you want, and Voice Hub will turn the library into a shortlist-style recommendation.
+          </div>
+        </article>
+
+        <article class="panel stats-panel">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="eyebrow">Why teams use it</p>
+              <h2>Made for faster evaluation</h2>
+            </div>
+          </div>
+          <div id="stats-grid" class="stats-grid"></div>
+        </article>
+      </section>
+      </div>
+
+      <section id="featured-section" class="panel collections-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Collections</p>
+            <h2>Browse the library through the decisions teams actually make</h2>
+            <p class="section-copy">
+              Explore focused groupings that help you move from broad exploration to an informed shortlist.
+            </p>
+          </div>
+        </div>
+
+        <div class="collections-grid">
+          <article class="collection-column">
+            <div class="collection-header">
+              <p class="eyebrow">For in-house control</p>
+              <h3>Self-hosted and local-first options</h3>
+            </div>
+            <div id="local-ready-grid" class="stack-grid"></div>
+          </article>
+
+          <article class="collection-column">
+            <div class="collection-header">
+              <p class="eyebrow">For a faster launch</p>
+              <h3>Managed services that shorten the path to production</h3>
+            </div>
+            <div id="cloud-ready-grid" class="stack-grid"></div>
+          </article>
+
+          <article class="collection-column">
+            <div class="collection-header">
+              <p class="eyebrow">For live experiences</p>
+              <h3>Realtime transport, telephony, and orchestration</h3>
+            </div>
+            <div id="realtime-grid" class="stack-grid"></div>
+          </article>
+
+          <article class="collection-column">
+            <div class="collection-header">
+              <p class="eyebrow">For open foundations</p>
+              <h3>Foundational tools you can adapt to your own stack</h3>
+            </div>
+            <div id="open-source-grid" class="stack-grid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalog-section" class="panel library-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Library</p>
+            <h2>Voice infrastructure, platforms, and supporting tools</h2>
+            <p class="section-copy">
+              Filter the library, open any entry for context, and compare options without having to piece the market together yourself.
+            </p>
+          </div>
+        </div>
+
+        <div class="catalog-layout">
+          <aside class="catalog-sidebar">
+            <div class="sidebar-card">
+              <p class="eyebrow">Browse by category</p>
+              <p class="muted">
+                Move through the stack the way polished tools directories do: one category at a time, with immediate feedback.
+              </p>
+              <div id="category-chip-row" class="chip-row"></div>
+            </div>
+          </aside>
+
+          <div class="catalog-content">
+            <div class="library-toolbar">
+              <div id="resource-result-meta" class="library-meta"></div>
+            </div>
+            <div id="resource-grid" class="resource-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="updates-section" class="updates-grid">
+        <article class="panel updates-panel">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="eyebrow">Latest movement</p>
+              <h2>Fresh signals from the ecosystem</h2>
+            </div>
+          </div>
+          <div id="updates-list" class="journal-list"></div>
+        </article>
+
+        <div class="updates-side">
+          <article class="panel sources-panel">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">Tracked sources</p>
+                <h2>Where the library stays informed</h2>
+              </div>
+            </div>
+            <div id="feed-source-list" class="source-list"></div>
+          </article>
+
+          <article class="panel refresh-panel">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">Library activity</p>
+                <h2>Recent refresh history</h2>
+              </div>
+            </div>
+            <div id="refresh-run-list" class="source-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div>
+          <strong id="footer-app-title">AI Voice Resource Hub</strong>
+          <p>A professional workspace for turning the voice AI landscape into a credible shortlist.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#search-section">Search</a>
+          <a href="#featured-section">Collections</a>
+          <a href="#catalog-section">Library</a>
+        </div>
+      </footer>
+    </main>
+
+    <div id="resource-modal" class="resource-modal hidden" aria-hidden="true">
+      <div class="resource-modal-backdrop" data-close-modal="true"></div>
+      <div class="resource-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="resource-modal-title">
+        <button class="icon-button" type="button" aria-label="Close resource details" data-close-modal="true">x</button>
+        <div id="resource-modal-body"></div>
+      </div>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+{
+  "project_name": "voice-resource-hub",
+  "display_name": "AI Voice Resource Hub",
+  "description": "A local AI Voice Resource Hub for discovering and comparing voice application resources across STT, TTS, LLM, SLM, embedding models, LiveKit, Pipecat, speech-to-speech, hosting platforms, containers, server infrastructure, and related tools. The app should support semantic search, reranking, RAG answers, freshness tracking, and a daily AI update agent.",
+  "entity_name": "resource",
+  "entity_name_plural": "resources",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "summary",
+      "label": "Summary",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "enum",
+      "required": true,
+      "options": [
+        "draft",
+        "active",
+        "archived"
+      ]
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "provider",
+      "label": "Provider",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "category",
+      "label": "Category",
+      "type": "enum",
+      "required": true,
+      "options": [
+        "stt",
+        "tts",
+        "llm",
+        "slm",
+        "embedding",
+        "realtime",
+        "voice-agent",
+        "hosting",
+        "container",
+        "s2s",
+        "orchestration",
+        "telephony",
+        "observability",
+        "other"
+      ]
+    },
+    {
+      "name": "resource_url",
+      "label": "Resource Url",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "local_model_ready",
+      "label": "Local Model Ready",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "hosted_service",
+      "label": "Hosted Service",
+      "type": "boolean",
+      "required": false
+    }
+  ],
+  "features": [
+    "create",
+    "delete",
+    "list",
+    "search",
+    "update"
+  ],
+  "ai_features": [
+    "retrieval",
+    "semantic-search"
+  ],
+  "stack": {
+    "backend": "fastapi",
+    "starter_frontend": "static-html-js",
+    "preferred_frontend": "static-html-js",
+    "database": "sqlite"
+  },
+  "recommended_skills": [
+    "app-intake-and-stack-selection",
+    "local-database",
+    "local-llm-feature-integration",
+    "local-vector-database",
+    "local-webapp-ops",
+    "server-foundation",
+    "testing-and-demo",
+    "three-tier-webapp-factory",
+    "ui-foundation"
+  ],
+  "notes": [
+    "The starter scaffolder currently generates a FastAPI + SQLite + static HTML/CSS/JS baseline.",
+    "Use ui-foundation to upgrade the frontend to React + Vite after the workflow is proven."
+  ]
+}
